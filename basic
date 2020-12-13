@@ -1,0 +1,24 @@
+####Kashmir twitter text analysis
+install.packages("twitteR")
+install.packages("ROAuth")
+library("twitteR")
+library("ROAuth")
+
+consumerKey='xxxxx'
+consumerSecret='xxxx'
+accessToken = 'xxxxx'
+accessSecret = 'xxxxx'
+
+options(httr_oauth_cache = TRUE)
+
+setup_twitter_oauth(consumer_key = consumerKey, consumer_secret = consumerSecret,
+                    access_token = accessToken, access_secret = accessSecret)
+
+kashmir <- twitteR::searchTwitter("kashmir", n=500, include_rts=FALSE, lang="en")
+
+tweets = searchTwitter(search.string, n=count)
+
+tweets2df <- twListToDF(tweets)
+write.csv(tweets2df, file = "tweets.csv")
+
+#######
